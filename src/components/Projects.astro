@@ -1,0 +1,75 @@
+---
+import Github from "./ui/Github.astro";
+import Badge from "./ui/Badge.astro";
+
+const projects = [
+  {
+    title: "gentleman transcript",
+    description:
+      "✨ Instant timestamped chapters for your YouTube videos with just one click! ✨",
+    stack: ["OpenAI", "Next.js", "shadcn/ui"],
+    url: "https://gentleman-transcript.vercel.app/",
+    repo: "https://github.com/felipetodev/gentleman-transcript",
+  },
+  {
+    title: "bloom bar",
+    description: "🍣 first Chilean Nikkei-influenced Bar and Grill",
+    stack: ["Next.js", "Tailwind CSS"],
+    url: "https://www.bloomnikkeibar.cl/",
+    repo: "https://github.com/felipetodev/bloom-bar",
+  },
+  {
+    title: "wanderlust",
+    description: "🗺 OpenAI devday example",
+    stack: ["OpenAI", "Next.js"],
+    url: "https://wanderlust-v0.vercel.app/",
+    repo: "https://github.com/felipetodev/wanderlust",
+  },
+  {
+    title: "ColaBOT",
+    description: "🤖 vscode AI extension assistant",
+    stack: ["Langchain", "OpenAI", "VSCode", "React"],
+    url: "https://marketplace.visualstudio.com/items?itemName=ColaBOT.colabot-vscode",
+    repo: "https://github.com/felipetodev/colabot",
+  },
+];
+---
+
+<section>
+  <h2 class="text-xl font-semibold my-5 tracking-wide">Projects</h2>
+  <div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-3">
+    {
+      projects.map((project) => (
+        <article class="relative grid border dark:border-neutral-800 rounded-md p-3 transition-all shadow-sm bg-neutral-100/10 dark:bg-inherit hover:bg-neutral-100/50 dark:hover:bg-neutral-900/30 hover:shadow-md">
+          <a
+            aria-label={project.title}
+            href={project.url}
+            class="font-semibold hover:underline underline-offset-4 w-fit"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {project.title}
+          </a>
+          <p class="opacity-80 text-sm mt-2 mb-4">{project.description}</p>
+          <ul class="flex gap-2 text-sm">
+            {project.stack.map((tech) => (
+              <li>
+                <Badge>{tech}</Badge>
+              </li>
+            ))}
+          </ul>
+          <span class="absolute top-3 right-3 transition-opacity hover:opacity-70">
+            <a
+              aria-label="GitHub repository"
+              href="https://github.com/felipetodev/gentleman-transcript"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Github class="size-4" />
+            </a>
+          </span>
+        </article>
+      ))
+    }
+  </div>
+</section>
