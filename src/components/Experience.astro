@@ -1,0 +1,67 @@
+---
+import Badge from "@/components/ui/Badge.astro";
+import Link from "@/components/ui/Link.astro";
+
+const timeline = [
+  {
+    title: "Frontend Developer",
+    company: "Scotiabank",
+    url: "https://www.scotiabank.com",
+    date: "2024 — present",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio labore neque eos eaque non sed velit quas reiciendis, asperiores architecto cumque laborum, iure minima quam quos recusandae error nobis voluptas.",
+  },
+  {
+    title: "Fullstack Developer",
+    company: "CodeGPT",
+    url: "https://codegpt.co/",
+    date: "2023 — 2023",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio labore neque eos eaque non sed velit quas reiciendis, asperiores architecto cumque laborum, iure minima quam quos recusandae error nobis voluptas.",
+  },
+  {
+    title: "Frontend Developer",
+    company: "Zebrands",
+    url: "https://zebrands.mx/",
+    date: "2021 — 2023",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio labore neque eos eaque non sed velit quas reiciendis, asperiores architecto cumque laborum, iure minima quam quos recusandae error nobis voluptas.",
+  },
+];
+---
+
+<section>
+  <h2 class="text-xl font-semibold my-5 tracking-wide">Experience</h2>
+  <div class="relative grid">
+    {
+      timeline.map((item, i) => (
+        <div
+          class:list={[
+            "h-full border-l dark:border-neutral-800",
+            timeline.length - 1 === i ? "mb-0" : "mb-4",
+          ]}
+        >
+          <div class="px-5 py-2">
+            <div class="flex items-center space-x-3">
+              <h3 class="text-lg font-semibold">{item.title}</h3>
+              <Badge class="!text-[10px] opacity-80">{item.date}</Badge>
+            </div>
+            <Link
+              class="opacity-80"
+              href={item.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {item.company}
+            </Link>
+            <p class="text-sm mt-2 opacity-70">{item.description}</p>
+          </div>
+        </div>
+      ))
+    }
+    <div
+      class="absolute top-4 -left-[4.5px] size-2.5 rounded-full border dark:border-neutral-800 dark:bg-[#c7c7c7] bg-neutral-600"
+    >
+    </div>
+  </div>
+</section>
