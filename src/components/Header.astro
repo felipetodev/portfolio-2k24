@@ -1,5 +1,5 @@
 ---
-import Github from "./ui/Github.astro";
+import Github from "@/components/ui/Github.astro";
 
 const { pathname } = Astro.url;
 
@@ -17,7 +17,13 @@ const paths = [
     {
       paths.map(({ name, path }) => (
         <li>
-          <a href={path} class:list={[pathname === path && "font-bold", "hover:opacity-75"]}>
+          <a
+            href={path}
+            class:list={[
+              pathname === path && "font-bold",
+              "hover:opacity-75 focus:opacity-75",
+            ]}
+          >
             {name}
           </a>
         </li>
@@ -29,9 +35,30 @@ const paths = [
     <li>
       <a
         rel="noopener noreferrer"
+        href="https://twitter.com/fe_ossandon/"
+        target="_blank"
+        class="hover:opacity-75 focus:opacity-75"
+      >
+        <svg
+          class="size-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="1200"
+          height="1227"
+          fill="none"
+          viewBox="0 0 1200 1227"
+          ><path
+            fill="currentColor"
+            d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
+          ></path></svg
+        >
+      </a>
+    </li>
+    <li>
+      <a
+        rel="noopener noreferrer"
         href="https://www.linkedin.com/in/felipeossandon/"
         target="_blank"
-        class="hover:opacity-75"
+        class="hover:opacity-75 focus:opacity-75"
       >
         <svg
           class="size-5"
@@ -49,26 +76,10 @@ const paths = [
     <li>
       <a
         rel="noopener noreferrer"
-        href="https://twitter.com/fe_ossandon/"
+        href="https://github.com/felipetodev"
         target="_blank"
-        class="hover:opacity-75"
+        class="hover:opacity-75 focus:opacity-75"
       >
-        <svg
-          class="size-4"
-          xmlns="http://www.w3.org/2000/svg"
-          width="1200"
-          height="1227"
-          fill="none"
-          viewBox="0 0 1200 1227"
-          ><path
-            fill="currentColor"
-            d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
-          ></path></svg
-        >
-      </a>
-    </li>
-    <li>
-      <a rel="noopener noreferrer" href="https://github.com/felipetodev" target="_blank" class="hover:opacity-75">
         <Github />
       </a>
     </li>

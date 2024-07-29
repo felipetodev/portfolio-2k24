@@ -1,6 +1,7 @@
 ---
-import Github from "./ui/Github.astro";
-import Badge from "./ui/Badge.astro";
+import Github from "@/components/ui/Github.astro";
+import Badge from "@/components/ui/Badge.astro";
+import Link from "@/components/ui/Link.astro";
 
 const projects = [
   {
@@ -40,17 +41,17 @@ const projects = [
   <div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-3">
     {
       projects.map((project) => (
-        <article class="relative grid border dark:border-neutral-800 rounded-md p-3 transition-all shadow-sm bg-neutral-100/10 dark:bg-inherit hover:bg-neutral-100/50 dark:hover:bg-neutral-900/30 hover:shadow-md">
-          <a
-            aria-label={project.title}
-            href={project.url}
-            class="font-semibold hover:underline underline-offset-4 w-fit"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {project.title}
-          </a>
-          <p class="opacity-80 text-sm mt-2 mb-4">{project.description}</p>
+        <article class="relative flex flex-col justify-between border dark:border-neutral-800 rounded-md p-3 transition-all shadow-sm bg-neutral-100/10 dark:bg-inherit hover:bg-neutral-100/50 dark:hover:bg-neutral-900/30 hover:shadow-md">
+          <div>
+            <Link
+              href={project.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {project.title}
+            </Link>
+            <p class="opacity-80 text-sm mt-2 mb-4">{project.description}</p>
+          </div>
           <ul class="flex gap-2 text-sm">
             {project.stack.map((tech) => (
               <li>
@@ -58,14 +59,14 @@ const projects = [
               </li>
             ))}
           </ul>
-          <span class="absolute top-3 right-3 transition-opacity hover:opacity-70">
+          <span class="absolute top-3 right-3 transition-opacity hover:opacity-70 focus-within:opacity-70">
             <a
               aria-label="GitHub repository"
               href="https://github.com/felipetodev/gentleman-transcript"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <Github class="size-4" />
+              <Github class="!size-4" />
             </a>
           </span>
         </article>
