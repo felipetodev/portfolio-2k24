@@ -2,6 +2,12 @@
 import "@fontsource/geist-sans";
 import "@fontsource/geist-sans/600.css";
 import "@fontsource/geist-sans/700.css";
+
+interface Props {
+	title: string
+	description: string
+}
+
 const { title, description } = Astro.props;
 ---
 <html lang="en" class="dark">
@@ -15,19 +21,11 @@ const { title, description } = Astro.props;
   </head>
   <body class="dark:bg-[#111010] dark:text-[#FAFAFA]">
     <main
-      class="relative flex flex-col mx-auto max-w-[750px] gap-y-10"
+      class="relative flex flex-col mx-auto max-w-[750px] gap-y-12"
     >
       <slot />
     </main>
     <style is:global>
-			:root {
-				--color-primary: #ddd;
-				--color-secondary: #333;
-				--color-accent: #b4cd02;
-
-				--background-color: #141800;
-			}
-
       html {
         font-family: "Geist Sans", system-ui, sans-serif;
       }
